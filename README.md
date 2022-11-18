@@ -8,7 +8,7 @@ API documentation is available at <https://isac.happay.in/v2/api>.
 
 ## Usage
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](TODO)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/typescript-example-using-sdk-built-with-fern-kozwif?file=app.ts&view=editor)
 
 ```typescript
 import { HappayApi, HappayApiClient } from '@fern-api/happay';
