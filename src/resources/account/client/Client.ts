@@ -32,14 +32,12 @@ export class Client {
       headers: {
         Authorization: core.BearerToken.toAuthorizationHeader(await core.Supplier.get(this.options.auth?.token)),
       },
-      body: await (await import("../../../serialization")).CreateAccountRequest.json(request),
+      body: serializers.CreateAccountRequest.json(request),
     });
     if (response.ok) {
       return {
         ok: true,
-        body: await (
-          await import("../../../serialization")
-        ).CreateAccountResponse.parse(response.body as serializers.CreateAccountResponse.Raw),
+        body: serializers.CreateAccountResponse.parse(response.body as serializers.CreateAccountResponse.Raw),
       };
     }
 

@@ -10,7 +10,7 @@ export const CreateAccountRequest: core.schemas.ObjectSchema<CreateAccountReques
   core.schemas.object({
     accountType: core.schemas.property(
       "account_type",
-      core.schemas.lazy(async () => (await import("../..")).AccountTypes)
+      core.schemas.lazy(() => serializers.AccountTypes)
     ),
     userId: core.schemas.property("user_id", core.schemas.string()),
   });

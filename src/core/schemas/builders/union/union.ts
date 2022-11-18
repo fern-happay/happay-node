@@ -15,7 +15,7 @@ export function union<D extends string | Discriminant<any, any>, U extends Union
   const baseSchema: BaseObjectLikeSchema<inferRawUnion<D, U>, inferParsedUnion<D, U>> = {
     ...OBJECT_LIKE_BRAND,
 
-    parse: async (raw, opts) => {
+    parse: (raw, opts) => {
       const { [rawDiscriminant]: discriminantValue, ...additionalProperties } = raw;
       const additionalPropertySchemas = union[discriminantValue];
 
@@ -28,12 +28,12 @@ export function union<D extends string | Discriminant<any, any>, U extends Union
       }
 
       return {
-        ...(await additionalPropertySchemas.parse(additionalProperties, opts)),
+        ...additionalPropertySchemas.parse(additionalProperties, opts),
         [parsedDiscriminant]: discriminantValue,
       } as inferParsedUnion<D, U>;
     },
 
-    json: async (parsed, opts) => {
+    json: (parsed, opts) => {
       const { [parsedDiscriminant]: discriminantValue, ...additionalProperties } = parsed;
       const additionalPropertySchemas = union[discriminantValue];
 
@@ -46,7 +46,7 @@ export function union<D extends string | Discriminant<any, any>, U extends Union
       }
 
       return {
-        ...(await additionalPropertySchemas.json(additionalProperties, opts)),
+        ...additionalPropertySchemas.json(additionalProperties, opts),
         [rawDiscriminant]: discriminantValue,
       } as inferRawUnion<D, U>;
     },
