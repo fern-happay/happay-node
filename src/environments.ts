@@ -6,11 +6,11 @@ export const Environment = {
   /**
    * Base URL for UAT
    */
-  Production: "https://api.uat-isac.happay.in",
+  Sandbox: "https://api.uat-isac.happay.in",
   /**
    * Base URL for PRODUCTION
    */
-  Sandbox: "https://api.isac.happay.in",
+  Production: "https://api.isac.happay.in",
 } as const;
 
-export type Environment = typeof Environment.Production | typeof Environment.Sandbox;
+export type Environment = typeof Environment.Sandbox | typeof Environment.Production;
