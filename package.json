@@ -1,6 +1,6 @@
 {
-    "name": "@fern-api/happay",
-    "version": "0.0.7",
+    "name": "@happay-fern/api",
+    "version": "0.0.1",
     "repository": "https://github.com/fern-happay/happay-node",
     "files": [
         "core",
