@@ -11,9 +11,25 @@ API documentation is available at <https://isac.happay.in/v2/api>.
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](TODO)
 
 ```typescript
-import { TODO } from "TODO";
+import { HappayApi, HappayApiClient } from '@fern-api/happay';
+import { Environment } from '@fern-api/happay/environments';
 
-const TODO
+void main();
+
+async function main() {
+  const client = new HappayApiClient({
+    environment: Environment.Production,
+    auth: {
+      token: 'YOUR_TOKEN',
+    },
+  });
+
+  const response = await client.account.createAccount({
+    accountType: HappayApi.AccountTypes.Limit,
+    userId: 'foo123',
+  });
+  console.log('Received response from Happay!', response);
+}
 ```
 
 ## Beta status
